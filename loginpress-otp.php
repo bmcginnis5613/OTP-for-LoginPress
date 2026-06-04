@@ -4,7 +4,7 @@ Plugin Name: LoginPress OTP
 Description: Adds one-time passcode authentication to LoginPress.
 Author: FirstTracks Marketing
 Author URI: https://firsttracksmarketing.com
-Version: 1.0.0
+Version: 1.0.1
 */
 
 if (!defined('ABSPATH')) {
@@ -80,6 +80,7 @@ class LoginPressOTPEmailAuth {
             'loginpress-otp-auth',
             plugin_dir_url(__FILE__) . 'assets/js/loginpress-otp.js',
             array('jquery'),
+            '1.0.2',
             true
         );
         
@@ -91,7 +92,8 @@ class LoginPressOTPEmailAuth {
         wp_enqueue_style(
             'loginpress-otp-style',
             plugin_dir_url(__FILE__) . 'assets/css/loginpress-otp.css',
-            array()
+            array(),
+            '1.0.2'
         );
     }
     
@@ -120,11 +122,12 @@ class LoginPressOTPEmailAuth {
             </div>
         </div>
         
-        <p style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
-            <a href="#" id="toggle-otp-login"><?php _e('Login with One-time Passcode', 'loginpress-otp'); ?></a>
-            <span id="back-to-regular" style="display: none;">
-                <a href="/" id="toggle-regular-login"><?php _e('Login with Password', 'loginpress-otp'); ?></a>
-            </span>
+        <p id="regular-login-toggle-wrap" style="display: none;">
+            <a href="/" id="toggle-regular-login"><?php _e('Login with Password', 'loginpress-otp'); ?></a>
+        </p>
+
+        <p id="otp-login-toggle-wrap">
+            <a href="#" id="toggle-otp-login" class="button button-primary button-large"><?php _e('Login with One-time Passcode', 'loginpress-otp'); ?></a>
         </p>
 
         <?php
