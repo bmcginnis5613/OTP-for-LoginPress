@@ -49,13 +49,33 @@
     color: #d63638;
 }
 
-#toggle-otp-login,
+#otp-login-toggle-wrap,
+#regular-login-toggle-wrap {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#loginform #otp-login-toggle-wrap #toggle-otp-login {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    min-height: 30px;
+    box-sizing: border-box;
+    text-align: center !important;
+    text-decoration: none;
+}
+
+body.otp-login-active #loginform #otp-login-toggle-wrap {
+    display: none !important;
+}
+
 #toggle-regular-login {
     color: #0073aa;
     text-decoration: none;
 }
 
-#toggle-otp-login:hover,
 #toggle-regular-login:hover {
     color: #005177;
 }
